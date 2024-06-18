@@ -1,0 +1,40 @@
+
+const nome = "Pedro"
+const sobrenome = "Farenzena"
+const idade = 16
+let estudo = true
+const cpf = "030.343.530-57"
+
+console.log(cpf)
+console.log("Olá meu nome é: ", nome, sobrenome, "e tenho ", idade, "anos", ", sou estudante? ", estudo)
+
+let isbrazilian = true
+
+if(idade >= 16 && isbrazilian == true){
+    console.log("Pode votar")
+}
+let temperatura = 30
+if(temperatura > 25){
+    console.log("Está quente lá fora! ")
+} else if (temperatura > 20 ){
+    console.log("esta agradavél")
+
+} else{
+    console.log("está frio")
+}
+
+
+/* variaveis
+nunbers = 1,2 , 3.12
+string = nome
+ boleans = verdadeiro ou falso
+ operadores são os mesmo do portugol com exessão de 1
+ "===" estritamente igual
+
+ "=="esse compara valor
+ "===" esse compara valor e tipo
+ const readline = require('readline')
+ && = e
+ || = ou
+ ! = negação
+ */
