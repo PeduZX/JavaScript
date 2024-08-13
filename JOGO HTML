@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Amir Ansari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .output {
+            background-color: #eaeaea;
+            padding: 15px;
+            border-radius: 5px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+        .menu {
+            margin-bottom: 15px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">Jogo do Amir Ansari</div>
+    <div id="output" class="output"></div>
+    <div class="menu">
+        <button onclick="explorarIra()">Explorar o Irã</button>
+        <button onclick="explorarAfeganistao()">Explorar o Afeganistão</button>
+        <button onclick="explorarSuecia()">Explorar a Suécia</button>
+        <button onclick="salvarCheckpoint()">Salvar o jogo</button>
+        <button onclick="exibirStatus()">Exibir status</button>
+        <button onclick="carregarCheckpoint()">Carregar checkpoint</button>
+        <button onclick="sair()">Sair</button>
+    </div>
+</div>
+
+<script>
+    let vida = 100;
+    let checkpoint = null;
+    const atleta = "Amir Ansari";
+    let itens = [];
+    const PECAS_BICICLETA = [
+        "Quadro da bicicleta",
+        "Rodas da bicicleta",
+        "Freios da bicicleta",
+        "Guidão da bicicleta",
+        "Pedais da bicicleta",
+        "Corrente da bicicleta",
+        "Selim da bicicleta", 
+        "Garfo da bicicleta",
+        "Capacete de ciclismo"
+    ];
+    let jogoAtivo = true;
+
+    function salvarCheckpoint() {
+        checkpoint = { vida, itens: itens.slice() };
+        mostrarMensagem("Checkpoint salvo com sucesso!");
+    }
+
+    function carregarCheckpoint() {
+        if (checkpoint) {
+            vida = checkpoint.vida;
+            itens = checkpoint.itens.slice();
+            mostrarMensagem("Checkpoint carregado com sucesso!");
+        } else {
+            mostrarMensagem("Nenhum checkpoint salvo encontrado.");
+        }
+    }
+
+    function verificarMorte() {
+        if (vida <= 0) {
+            mostrarMensagem("Você morreu. Fim de jogo.");
+            jogoAtivo = false;
+        }
+    }
+
+    function verificarCompeticao() {
+        let todasPecasColetadas = PECAS_BICICLETA.every(peca => itens.includes(peca));
+        if (todasPecasColetadas) {
+            mostrarMensagem("Parabéns! Você completou sua bicicleta dos sonhos e agora está pronto para competir nas Olimpíadas!");
+        } else {
+            mostrarMensagem("Você não possui todas as peças necessárias para competir nas Olimpíadas. Sua jornada acabou aqui.");
+            jogoAtivo = false;
+        }
+    }
+
+    function explorarIra() {
+        if (!jogoAtivo) return;
+
+        mostrarMensagem(`Vamos explorar a vida de ${atleta}!`);
+        mostrarMensagem("Primeiramente, vamos explorar onde Amir nasceu: IRÃ.");
+        mostrarMensagem("CHEGAMOS AO IRÃ!");
+        mostrarMensagem("Eu, Amir, tenho um sonho de montar minha bicicleta dos sonhos para competir nas Olimpíadas.");
+        mostrarMensagem("Mas sei que vai ser muito difícil.");
+        mostrarMensagem("Com a ajuda dos meus amigos, acredito que posso me tornar um campeão do mundo com a bicicleta que tanto sonhei.");
+        mostrarMensagem("Meus amigos sempre me apoiaram na montagem da bicicleta dos sonhos.");
+
+        interagirComNPCiran();
+        verificarMorte();
+    }
+
+    function interagirComNPCiran() {
+        let visitaIra = prompt("Olha, seus conhecidos! Vamos lá: SIM/NAO (Caso NÃO, isso vai acarretar na perda de muita vida)").toUpperCase();
+        if (visitaIra === "SIM") {
+            let ir = prompt("Olha, um conhecido seu! Vamos interagir com ele? SIM/NAO").toUpperCase();
+            if (ir === "SIM") {
+                mostrarMensagem("Oi! Que bom te ver! Tome, aqui está um presente: Quadro da bicicleta.");
+                itens.push("Quadro da bicicleta");
+            } else {
+                mostrarMensagem("É uma pena, eles gostariam de te ajudar em seu sonho.");
+                vida -= 10;
+            }
+
+            let outroNPC = prompt("Você encontrou outro amigo! Quer falar com ele? SIM/NAO").toUpperCase();
+            if (outroNPC === "SIM") {
+                mostrarMensagem("Oi! Eu ouvi sobre seu sonho. Tome, aqui estão as Rodas da bicicleta.");
+                itens.push("Rodas da bicicleta");
+            } else {
+                mostrarMensagem("Você perdeu a chance de ganhar as rodas da bicicleta.");
+                vida -= 10;
+            }
+
+            let terceiroNPC = prompt("Um terceiro amigo apareceu! Quer falar com ele? SIM/NAO").toUpperCase();
+            if (terceiroNPC === "SIM") {
+                mostrarMensagem("Oi! Estou feliz em ajudar no seu sonho. Tome, aqui estão os Freios da bicicleta.");
+                itens.push("Freios da bicicleta");
+            } else {
+                mostrarMensagem("Você perdeu a chance de ganhar os freios da bicicleta.");
+                vida -= 10;
+            }
+        } else {
+            mostrarMensagem("Eles gostariam de te ver, mas você decidiu não visitá-los. ISSO VAI ACARRETAR NA PERDA DE MUITA VIDA.");
+            vida -= 40;
+        }
+        verificarMorte();
+        if (!jogoAtivo) return;
+
+        mostrarMensagem("A situação no Irã está piorando cada vez mais. Acho que mesmo não querendo, minha família e eu vamos nos mudar.");
+        mostrarMensagem("Vamos para o Afeganistão.");
+    }
+
+    function explorarAfeganistao() {
+        if (!jogoAtivo) return;
+
+        mostrarMensagem("Agora vamos explorar o Afeganistão!");
+        mostrarMensagem("CHEGAMOS AO AFEGANISTÃO!");
+        mostrarMensagem("Aqui, Amir encontra outros desafios, mas também pode encontrar mais amigos dispostos a ajudar com sua bicicleta dos sonhos.");
+
+        interagirComNPCAfeganistao();
+        verificarMorte();
+    }
+
+    function interagirComNPCAfeganistao() {
+        let visitaAfeganistao = prompt("Olha, você encontrou novos amigos! Vamos lá: SIM/NAO (Caso NÃO, isso vai acarretar na perda de muita vida)").toUpperCase();
+        if (visitaAfeganistao === "SIM") {
+            let ir = prompt("Olha, um novo amigo seu! Vamos interagir com ele? SIM/NAO").toUpperCase();
+            if (ir === "SIM") {
+                mostrarMensagem("Oi! Que bom te ver por aqui! Tome, aqui está um presente: Guidão da bicicleta.");
+                itens.push("Guidão da bicicleta");
+            } else {
+                mostrarMensagem("Que pena, eles gostariam de te ajudar.");
+                vida -= 10;
+            }
+
+            let outroNPC = prompt("Você encontrou mais um amigo! Quer falar com ele? SIM/NAO").toUpperCase();
+            if (outroNPC === "SIM") {
+                mostrarMensagem("Oi! Eu soube do seu sonho. Tome, aqui estão os Pedais da bicicleta.");
+                itens.push("Pedais da bicicleta");
+            } else {
+                mostrarMensagem("Você perdeu a chance de ganhar os pedais da bicicleta.");
+                vida -= 10;
+            }
+
+            let terceiroNPC = prompt("Um terceiro amigo apareceu! Quer falar com ele? SIM/NAO").toUpperCase();
+            if (terceiroNPC === "SIM") {
+                mostrarMensagem("Oi! Estou feliz em ajudar no seu sonho. Tome, aqui está a Corrente da bicicleta.");
+                itens.push("Corrente da bicicleta");
+            } else {
+                mostrarMensagem("Você perdeu a chance de ganhar a corrente da bicicleta.");
+                vida -= 10;
+            }
+        } else {
+            mostrarMensagem("Eles gostariam de te ajudar, mas você decidiu não visitá-los. ISSO VAI ACARRETAR NA PERDA DE MUITA VIDA.");
+            vida -= 40;
+        }
+        verificarMorte();
+        if (!jogoAtivo) return;
+
+        mostrarMensagem("A situação no Afeganistão também está se complicando. É hora de seguir para outro lugar. Vamos para a Suécia.");
+    }
+
+    function explorarSuecia() {
+        if (!jogoAtivo) return;
+
+        mostrarMensagem("Agora vamos explorar a Suécia!");
+        mostrarMensagem("CHEGAMOS À SUÉCIA!");
+        mostrarMensagem("Na Suécia, Amir finalmente encontra a paz e a segurança necessárias para focar em seu treinamento para as Olimpíadas.");
+
+        interagirComNPCSuecia();
+        verificarMorte();
+        verificarCompeticao();
+    }
+
+    function interagirComNPCSuecia() {
+        let visitaSuecia = prompt("Você encontrou um novo amigo na Suécia! Vamos lá: SIM/NAO (Caso NÃO, isso vai acarretar na perda de muita vida)").toUpperCase();
+        if (visitaSuecia === "SIM") {
+            let ir = prompt("Você encontrou um novo amigo! Vamos interagir com ele? SIM/NAO").toUpperCase();
+            if (ir === "SIM") {
+                mostrarMensagem("Oi! Bem-vindo à Suécia! Tome, aqui está um presente: Selim da bicicleta.");
+                itens.push("Selim da bicicleta");
+            } else {
+                mostrarMensagem("Que pena, ele gostaria de te ajudar.");
+                vida -= 10;
+            }
+
+            let outroNPC = prompt("Você encontrou mais um amigo! Quer falar com ele? SIM/NAO").toUpperCase();
+            if (outroNPC === "SIM") {
+                mostrarMensagem("Oi! Eu soube do seu sonho. Tome, aqui está o Garfo da bicicleta.");
+                itens.push("Garfo da bicicleta");
+            } else {
+                mostrarMensagem("Você perdeu a chance de ganhar o garfo da bicicleta.");
+                vida -= 10;
+            }
+
+            let terceiroNPC = prompt("Um terceiro amigo apareceu! Quer falar com ele? SIM/NAO").toUpperCase();
+            if (terceiroNPC === "SIM") {
+                mostrarMensagem("Oi! Estou feliz em ajudar no seu sonho. Tome, aqui está o Capacete de ciclismo.");
+                itens.push("Capacete de ciclismo");
+            } else {
+                mostrarMensagem("Você perdeu a chance de ganhar o capacete de ciclismo.");
+                vida -= 10;
+            }
+        } else {
+            mostrarMensagem("Eles gostariam de te ver, mas você decidiu não visitá-los. ISSO VAI ACARRETAR NA PERDA DE MUITA VIDA.");
+            vida -= 40;
+        }
+        verificarMorte();
+    }
+
+    function exibirStatus() {
+        mostrarMensagem(`Vida: ${vida}`);
+        mostrarMensagem(`Itens: ${itens.join(", ") || "Nenhum item coletado ainda"}`);
+    }
+
+    function sair() {
+        mostrarMensagem("Saindo do jogo. Até a próxima!");
+        jogoAtivo = false;
+    }
+
+    function mostrarMensagem(mensagem) {
+        const output = document.getElementById('output');
+        output.innerHTML += `<p>${mensagem}</p>`;
+        output.scrollTop = output.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
