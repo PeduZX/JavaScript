@@ -2,17 +2,7 @@ let vida = 100
 let checkpoint = null // Armazena o estado do jogo
 const atleta = "Amir Ansari"
 let itens = []
-const PECAS_BICICLETA = [
-    "Quadro da bicicleta",
-    "Rodas da bicicleta",
-    "Freios da bicicleta",
-    "Guidão da bicicleta",
-    "Pedais da bicicleta",
-    "Corrente da bicicleta",
-    "Selim da bicicleta", 
-    "Garfo da bicicleta",
-    "Capacete de ciclismo"
-]
+const PECAS_BICICLETA = ["Quadro da bicicleta","Rodas da bicicleta","Freios da bicicleta","Guidão da bicicleta","Pedais da bicicleta","Corrente da bicicleta","Selim da bicicleta", "Garfo da bicicleta","Capacete de ciclismo"]
 let jogoAtivo = true // controla se o jogo está ativo ou não, ou seja se o Amir morreu ou não
  
 // Função para salvar o estado atual do jogo
@@ -87,6 +77,7 @@ function interagirComNPCiran() {
     console.log("Vamos andar para ver eles!")
     let visitaIra = prompt("Olha, seus conhecidos! Vamos lá: SIM/NAO OBS: CASO NÃO ISSO VAI ACARRETAR NA PERDA DE MUITA VIDA\n").toUpperCase()
     if (visitaIra === "SIM") {
+        console.log("------------------------------------")
         console.log("Vamos lá!")
         
         let ir = prompt("Olha, um conhecido seu! Vamos interagir com ele? SIM/NAO \n").toUpperCase()
@@ -98,6 +89,7 @@ function interagirComNPCiran() {
             console.log("Adorei te ver aqui!")
             console.log("Me acompanhe, tenho alguma coisa para te ajudar.")
             console.log("De tanta felicidade em te ver, vamos te entregar uma recompensa: Quadro da bicicleta.")
+            console.log("------------------------------------")
             itens.push("Quadro da bicicleta")
         } else {
             console.log("É uma pena, eles gostariam de te ver e te ajudar em seu sonho.")
@@ -107,6 +99,7 @@ function interagirComNPCiran() {
         let outroNPC = prompt("Você encontrou outro amigo! Quer falar com ele? SIM/NAO \n").toUpperCase()
         if (outroNPC === "SIM") {
             console.log("Oi! Eu ouvi sobre seu sonho. Tome, quero te dar um presente: Rodas da bicicleta.")
+            console.log("------------------------------------")
             itens.push("Rodas da bicicleta")
         } else {
             console.log("Você perdeu a chance de ganhar as rodas da bicicleta.")
@@ -116,6 +109,7 @@ function interagirComNPCiran() {
         let terceiroNPC = prompt("Um terceiro amigo apareceu! Quer falar com ele? SIM/NAO \n").toUpperCase()
         if (terceiroNPC === "SIM") {
             console.log("Oi! Estou feliz em ajudar no seu sonho. Tome, aqui está: Freios da bicicleta.")
+            console.log("------------------------------------")
             itens.push("Freios da bicicleta")
         } else {
             console.log("Você perdeu a chance de ganhar os freios da bicicleta.")
@@ -126,18 +120,20 @@ function interagirComNPCiran() {
         vida -= 40
     }
     verificarMorte() // Verifica se o jogador morreu após explorar o Irã
-    if (!jogoAtivo) return // Se o jogo não estiver ativo, retorna
+    if (!jogoAtivo) return // Se o jogo não estiver ativo, retorna ! inverte o valor e retorna a verificação
     
+    console.log("------------------------------------")
     console.log("A situação do Irã está piorando cada vez mais, acho que mesmo não querendo eu e minha família vamos nos mudar.")
     console.log("Meus pais conversaram e decidiram que vamos nos mudar.")
     console.log("Eu não queria, mas... enfim, vamos para o Afeganistão.")
     console.log("Precisamos sair daqui!")
+    console.log("------------------------------------")
 }
 
 // Função para explorar o Afeganistão
 function explorarAfeganistao() {
     if (!jogoAtivo) return
-    
+    console.log("------------------------------------")
     console.log("Agora vamos explorar o Afeganistão!")
     console.log("CHEGAMOS AO AFEGANISTÃO!")
     console.log("Aqui, Amir encontra outros desafios, mas também pode encontrar mais amigos dispostos a ajudar com sua bicicleta dos sonhos.")
@@ -158,6 +154,7 @@ function explorarAfeganistao() {
  
 // Função para interagir com NPCs no Afeganistão
 function interagirComNPCAfeganistao() {
+    console.log("------------------------------------")
     console.log("Ao sair para caminhar um de seus amigos viu o seu desempenho na sua bicicleta velhinha!")
     console.log("Ele gostou muito do que viu.")
     console.log("Nisso ele foi até mim")
@@ -165,6 +162,7 @@ function interagirComNPCAfeganistao() {
     console.log("Ele falou que poderia ser seu treinador e poderia te ajudar na sua caminhada!")
     console.log("Ele disse que te acha uma garoto muito promissor!")
     console.log("Reconhece que você tem um talento muito grande!")
+    console.log("------------------------------------")
     let visitaAfeganistao = prompt("Olha, você encontrou novos amigos! Vamos lá: SIM/NAO OBS: CASO NÃO ISSO VAI ACARRETAR NA PERDA DE MUITA VIDA\n").toUpperCase()
     if (visitaAfeganistao === "SIM") {
         console.log("Vamos lá!")
@@ -191,6 +189,7 @@ function interagirComNPCAfeganistao() {
         let terceiroNPC = prompt("Um terceiro amigo apareceu! Quer falar com ele? SIM/NAO \n").toUpperCase()
         if (terceiroNPC === "SIM") {
             console.log("Oi! Estou feliz em ajudar no seu sonho. Tome, aqui está: Corrente da bicicleta.")
+            console.log("------------------------------------")
             itens.push("Corrente da bicicleta")
         } else {
             console.log("Você perdeu a chance de ganhar a corrente da bicicleta.")
@@ -204,12 +203,14 @@ function interagirComNPCAfeganistao() {
     if (!jogoAtivo) return // Se o jogo não estiver ativo, retorna
  
     console.log("A situação no Afeganistão está piorando rapidamente. Minha família e eu decidimos que precisamos fugir para a Suécia em busca de segurança.")
+    console.log("------------------------------------")
 }
  
 // Função para explorar a Suécia
 function explorarSuecia() {
     if (!jogoAtivo) return
- 
+
+    console.log("------------------------------------")
     console.log("Agora vamos explorar a Suécia!")
     console.log("CHEGAMOS À SUÉCIA!")
     console.log("Aqui, Amir tem a chance de encontrar mais amigos que podem ajudá-lo a finalmente completar sua bicicleta dos sonhos.")
@@ -217,6 +218,7 @@ function explorarSuecia() {
     console.log("Aqui o clima é diferente!")
     console.log("Embora todas essas adversidades, estou adorando a Suécia!")
     console.log("Me sinto parte desta nação!")
+    console.log("------------------------------------")
  
     interagirComNPCsuecia()
     verificarMorte() // Verifica se o jogador morreu após interagir com NPCs
@@ -237,15 +239,17 @@ function interagirComNPCsuecia() {
         if (ir === "SIM") {
             console.log("Oi! Que bom te ver por aqui!")
             console.log("Eu quero te ajudar no seu sonho. Tome, aqui está um presente: Selim da bicicleta.")
+            console.log("------------------------------------")
             itens.push("Selim da bicicleta")
         } else {
             console.log("Que pena, eles gostariam de te ajudar.")
             vida -= 10
         }
- 
+        
         let outroNPC = prompt("Você encontrou mais um amigo! Quer falar com ele? SIM/NAO \n").toUpperCase()
         if (outroNPC === "SIM") {
             console.log("Oi! Eu soube do seu sonho. Tome, quero te dar um presente: Garfo da bicicleta.")
+            console.log("------------------------------------")
             itens.push("Garfo da bicicleta")
         } else {
             console.log("Você perdeu a chance de ganhar o garfo da bicicleta.")
@@ -255,6 +259,7 @@ function interagirComNPCsuecia() {
         let terceiroNPC = prompt("Um terceiro amigo apareceu! Quer falar com ele? SIM/NAO \n").toUpperCase()
         if (terceiroNPC === "SIM") {
             console.log("Oi! Estou feliz em ajudar no seu sonho. Tome, aqui está: Capacete de ciclismo.")
+            console.log("------------------------------------")
             itens.push("Capacete de ciclismo")
         } else {
             console.log("Você perdeu a chance de ganhar o capacete de ciclismo.")
