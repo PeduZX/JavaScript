@@ -315,7 +315,7 @@ function interagirComNPCsuecia() {
 // Função para exibir o status atual do jogador
 function exibirStatus() {
     console.log(`Vida: ${vida}`)
-    console.log(`Itens: ${itens.join(", ")}`)
+    console.log(`Itens: ${itens.join(", ")}`) //transforma tudo em um array só
 }
 
 // Função para salvar o estado atual do jogo
