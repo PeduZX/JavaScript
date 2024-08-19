@@ -72,6 +72,7 @@ function explorarIra() {
     console.log("Porém, a situação no Irã me deixa em dúvida se vou conseguir seguir meu sonho.")
     console.log("Mas não irei desistir.........")
 
+    //chamo as funções para não ter que repetir o código
     interagirComNPCiran()
     verificarMorte()
 }
@@ -252,6 +253,7 @@ function explorarSuecia() {
     console.log("Me sinto parte desta nação!")
     console.log("------------------------------------")
 
+    //chamo as funções para não ter que repetir o código
     interagirComNPCsuecia()
     verificarMorte()
 
@@ -344,11 +346,11 @@ function iniciarJogo() {
 
     let opcao
     while (jogoAtivo) {
-        mostrarMenu()
+        mostrarMenu() // mostrar o menu
         opcao = prompt(`Digite o número da opção desejada: 
 INDICAÇÕES:\n \n 1. CASO EXPLORE TODOS OS PAISES INDICO QUE SIGA A ORDEM 1 2 3 PARA SUA EXPERIENCIA SER MAIS SATISFATORIA.\n \n2. ABRA O CONSOLE PARA LER AS HISTÒRIAS E DIALOGOS.\n \n3. APERTE 7 PARA PODER FECHAR ESSA LACUNA E ABRIR O CONSOLE.`)
 
-        switch (opcao) {
+        switch (opcao) { // chama as funções de acordo com escolhido para não ocorrer repetições
             case "1":
                 explorarIra()
                 break
