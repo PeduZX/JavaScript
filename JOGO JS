@@ -70,6 +70,7 @@ function explorarIra() {
     console.log("Sempre estiveram aqui para me apoiar, isso me deixa muito feliz!")
     console.log("Não sei até quando eles vão estar aqui, mas enquanto isso continuo na luta.")
     console.log("Porém, a situação no Irã me deixa em dúvida se vou conseguir seguir meu sonho.")
+    console.log("Mas não irei desistir.........")
 
     interagirComNPCiran()
     verificarMorte()
