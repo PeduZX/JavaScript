@@ -1,6 +1,5 @@
 let vida = 100
 let checkpoint = null // Armazena o estado do jogo
-const atleta = "Amir Ansari"
 let itens = []
 const PECAS_BICICLETA = ["Quadro da bicicleta", 
     "Rodas da bicicleta", "Freios da bicicleta", 
@@ -57,7 +56,7 @@ function terSentimentos() {
 }
 
 // Função para explorar o Irã
-function explorarIra() {
+function explorarIra( atleta = "Amir Ansari") {
     if (!jogoAtivo) return
 
     console.log(`Vamos explorar a vida de ${atleta}!`)
@@ -378,5 +377,4 @@ INDICAÇÕES:\n \n 1. CASO EXPLORE TODOS OS PAISES INDICO QUE SIGA A ORDEM 1 2 3
         }
     }
 }
-
 iniciarJogo()
