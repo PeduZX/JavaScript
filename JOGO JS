@@ -1,5 +1,6 @@
+
 let vida = 100
-let checkpoint = null // Armazena o estado do jogo
+let checkpoint = [] // Armazena o estado do jogo
 let itens = []
 const PECAS_BICICLETA = ["Quadro da bicicleta", 
     "Rodas da bicicleta", "Freios da bicicleta", 
@@ -11,10 +12,10 @@ let sentimentos = []
 
 // Função para carregar o estado salvo do jogo
 function carregarCheckpoint() {
-    if (checkpoint) {
-        vida = checkpoint.vida
-        itens = checkpoint.itens.slice()
-        sentimentos = checkpoint.sentimentos.slice()
+    if (checkpoint.length > 0) { // Verifica se existe um checkpoint salvo
+        vida = checkpoint[0]; // Copia o valor de volta para o jogo
+        itens = checkpoint[1].slice(); // Copia o array de volta para o jogo
+        sentimentos = checkpoint[2].slice(); // Copia o array de volta para o jogo
         console.log("Checkpoint carregado com sucesso!")
     } else {
         console.log("Nenhum checkpoint salvo encontrado.")
@@ -319,12 +320,8 @@ function exibirStatus() {
 
 // Função para salvar o estado atual do jogo
 function salvarCheckpoint() {
-    checkpoint = {
-        vida: vida,
-        itens: itens.slice(),
-        sentimentos: sentimentos.slice()
-    }
-    console.log("Checkpoint salvo com sucesso!")
+    checkpoint = [vida, itens.slice(), sentimentos.slice()];
+    console.log("Checkpoint salvo com sucesso!");
 }
 
 // Função para mostrar o menu do jogo
