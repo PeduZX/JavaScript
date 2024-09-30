@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="PagVenda.css" media="screen" />
+    <nav>
+    <a href="index.html">Página Inicial</a>
+    <a href="ctrl-estoque.html">Controle de Estoque</a>
+    <a href="add-produto.html">Adicionar Produto</a>
+    <a href="funcionarios.html">Funcionários</a>
+    <a href="PagVenda.html">Página de Venda</a>
+    <a href="HistoricoVenda.html">Página de Histórico de vendas</a>
+    </nav>
+</head>
+<body>
+    <form action="">
+        <div>
+            <h1>Formulário de Cadastro</h1>
+
+            <label for="nome">Nome Completo:</label><br>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br><br>
+            
+            <label for="CPF">CPF:</label><br>
+            <input type="number" id="CPF" name="CPF"><br><br>
+
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha"><br><br>
+
+            <label for="data-aquisicao">Data de Aquisição:</label><br>
+            <input type="date" id="data-nascimento" name="data-nascimento"><br><br>
+
+            <label for="Produtos">Selecione seu Produto:</label><br>
+            <select id="Produtos" name="Produtos">
+                <option value="Cms">Camisa Básica</option>
+                <option value="clc">Calça Jeans</option>
+                <option value="jqt">Jaqueta de Couro</option>
+                <option value="tenis">Tênis</option>
+                <option value="rlg">Relógio</option>
+                <option value="ocl">ÓCulos</option>
+            </select><br>
+
+            <br><label>Forma de Pagamento:</label><br>
+            <div>
+                <input type="radio" name="formPagamento" id="Debito" value="Debito">
+                <label for="Debito">Débito</label><br>
+            </div>
+            <div>
+                <input type="radio" name="formPagamento" id="pix" value="pix">
+                <label for="pix">Pix</label><br>
+            </div>
+            <br>
+            <footer>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Resetar">
+        </footer>
+    </form>
+</body>
+</html>

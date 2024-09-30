@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="forms.css" media="screen" />
+</head>
+<body>
+    <form action="">
+        <div>
+            <h1>Formulário de Cadastro</h1>
+
+            <label for="nome">Nome Completo:</label><br>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br><br>
+
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha"><br><br>
+
+            <label for="data-nascimento">Data de Nascimento:</label><br>
+            <input type="date" id="data-nascimento" name="data-nascimento"><br><br>
+
+            <label for="cor-favorita">Qual sua cor favorita:</label><br>
+            <input type="color" id="cor-favorita" name="cor-favorita"><br><br>
+
+            <label for="estadosBR">Selecione seu estado:</label><br>
+            <select id="estadosBR" name="estadosBR">
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="PR">Paraná</option>
+            </select><br><br>
+
+            <label>Quais são seus hobbies?</label><br>
+            <div>
+                <input type="checkbox" id="leitura" name="hobbies" value="leitura">
+                <label for="leitura">Leitura</label><br>
+            </div>
+            <div>
+                <input type="checkbox" id="musica" name="hobbies" value="musica">
+                <label for="musica">Música</label><br>
+            </div>
+            <div>
+                <input type="checkbox" id="esporte" name="hobbies" value="esporte">
+                <label for="esporte">Esporte</label><br>
+            </div>
+
+            <br><label>Gênero:</label><br>
+            <div>
+                <input type="radio" name="genero" id="masculino" value="masculino">
+                <label for="masculino">Masculino</label><br>
+            </div>
+            <div>
+                <input type="radio" name="genero" id="feminino" value="feminino">
+                <label for="feminino">Feminino</label><br>
+            </div>
+            <div>
+                <input type="radio" name="genero" id="outro" value="outro">
+                <label for="outro">Outro</label><br>
+            </div>
+
+            <br><label for="comentarios">Comentários:</label><br>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea><br><br>
+
+            <label for="arquivo">Escolha um arquivo para fazer upload:</label><br>
+            <input type="file" id="arquivo" name="arquivo"><br><br>
+
+            <label for="volume">Nível de satisfação (0 a 100):</label><br>
+            <input type="range" id="volume" name="volume" min="0" max="100"><br><br>
+
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Resetar">
+        </div>
+    </form>
+</body>
+</html>

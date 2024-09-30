@@ -1,0 +1,16 @@
+div{
+height: 400px;
+width: 500px; 
+background-color: aquamarine;
+
+margin-left: 200px;
+
+}
+p{
+    padding-left: 150px;
+    padding-top: 100px;
+}
+
+/* centralizar DIV 
+justify-content:center;
+align-items:center; */
